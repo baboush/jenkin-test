@@ -13,7 +13,9 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npm ci'
+                sh 'corepack  enable'
+                sh 'corepack prepare pnpm@latest --activate'
+                sh 'pnpm i --frozen-lockfile'
             }
         }
         stage('Lint') {
