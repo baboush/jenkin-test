@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:20-bullseye-slim'
+            image 'node:20'
             args '-u root'
         }
     }
