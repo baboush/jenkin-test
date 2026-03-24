@@ -13,18 +13,16 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'corepack enable'
-                sh 'pnpm i --frozen-lockfile'
-            }
+                sh 'npx pnpm install --frozen-lockfile'            }
         }
         stage('Lint') {
             steps {
-                sh 'pnpm run lint'
+                sh 'npx pnpm run lint'
             }
         }
         stage('Test') {
             steps {
-                sh 'pnpm test -- --coverage'
+                sh 'npx pnpm test -- --coverage'
             }
         }
     }
