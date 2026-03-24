@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npm install -g pnpm'
+                sh 'corepack enable'
                 sh 'pnpm i --frozen-lockfile'
             }
         }
