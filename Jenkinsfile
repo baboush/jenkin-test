@@ -13,7 +13,8 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npx pnpm install --frozen-lockfile'            }
+                sh 'rm -rf node_modules'
+                sh 'npx pnpm install --frozen-lockfile'          }
         }
         stage('Lint') {
             steps {
