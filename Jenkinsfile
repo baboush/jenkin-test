@@ -13,19 +13,19 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'corepack  enable'
+                sh 'corepack enable'
                 sh 'corepack prepare pnpm@latest --activate'
                 sh 'pnpm i --frozen-lockfile'
             }
         }
         stage('Lint') {
             steps {
-                sh 'npm run lint'
+                sh 'pnpm run lint'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test -- --coverage'
+                sh 'pnpm test -- --coverage'
             }
         }
     }
