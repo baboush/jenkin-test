@@ -1,6 +1,6 @@
 import express from "express";
 import { addMovie } from "./services/catalogue-service.js";
-const { getAllMovie } = await import("./services/catalogue-service.js");
+const { getAllMovie } = import("./services/catalogue-service.js");
 
 const app = express();
 app.use(express.json());

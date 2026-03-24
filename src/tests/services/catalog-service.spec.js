@@ -12,12 +12,12 @@ describe("catalog-service", () => {
   });
 
   describe("getAllMovie", () => {
-    if (
+    it(
       ("should is array all movies",
-      () => {
-        const movies = getAllMovie();
+      async () => {
+        const movies = await getAllMovie();
         expect(movies).toBeInstanceOf(Array);
-      })
+      }),
     );
 
     it("should return an array of movies with id and title", async () => {
