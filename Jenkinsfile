@@ -6,14 +6,9 @@ pipeline {
     }
 
     stages {
-        stage('Prepare') {
-            steps {
-                sh 'mkdir -p node_modules pnpm-store && chown -R node:node .'
-            }
-        }
         stage('Install') {
             steps {
-                sh 'npx pnpm install --frozen-lockfile --store-dir ./pnpm-store'
+                sh 'npx pnpm install --frozen-lockfile'
             }
         }
         stage('Lint') {
@@ -29,10 +24,7 @@ pipeline {
     }
 
     post {
-        always {
-            sh 'chown -R 1000:1000 . || true'
-        }
-        success { echo '✅ Pipeline réussi ! Bravo Arnaud.' }
-        failure { echo '❌ Pipeline échoué. Vérifie les logs de permission.' }
+        success { echo '✅ Pipeline réussi !' }
+        failure { echo '❌ Pipeline échoué.' }
     }
 }
