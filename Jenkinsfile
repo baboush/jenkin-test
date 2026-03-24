@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'npx pnpm test -- --run'
+                sh 'npx pnpm test'
             }
         }
     }
